@@ -4,7 +4,6 @@ export default {
 	titleSuffix: " – The Road to Node",
 	i18n: [
 		{ locale: 'en', text: 'English' },
-		{ locale: 'nl', text: 'Dutch' }
 	],
 	logo: (
 		<>
