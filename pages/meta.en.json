@@ -6,6 +6,5 @@
 	"bitcoin-core-extensions": "Bitcoin Core Extensions",
 	"lightning": "Lightning",
 	"lightning-extensions": "Lightning Extensions",
-	"wallets": "Wallets",
-	"changelog": "Changelog"
+	"wallets": "Wallets"
 }
