@@ -14,13 +14,13 @@ The software you will be running often depends on other software. the [dependenc
 
 If you also want to use your Pi as a Lightning node, you will need to manage the necessary funds on the device. Good security is then crucial. The [firewall](/raspberry-pi/firewall) section combined with the [port overview](/raspberry-pi/port-overview) will help you with security.
 
-## Bitcoin Core
+## Bitcoin Knots
 
-The beating heart of this guide. First of all, we'll pull in the source code of Bitcoin Core ourselves and [install](/bitcoin-core/installation) it. To make use of it and follow the rest of the guide, you need [certain settings](/bitcoin-core/configure-and-start). The settings will determine subsequent apps and Lightning. In this guide, Bitcoin Core is used as an implementation. From [research](https://blog.lopp.net/bitcoin-node-performance-sync-tests/#performance-rankings), this appears to be the fastest Bitcoin implementation. In addition, it is the most developed, contains the latest features, has the [largest share](https://bitnodes.io/nodes/) in the market, and is the most mature implementation of the protocol.
+The beating heart of this guide. First of all, we'll pull in the source code of Bitcoin Knots ourselves and [install](/bitcoin-knots/installation) it. To make use of it and follow the rest of the guide, you need [certain settings](/bitcoin-knots/configure-and-start). The settings will determine subsequent apps and Lightning. In this guide, Bitcoin Knots is used as an implementation. From [research](https://blog.lopp.net/bitcoin-node-performance-sync-tests/#performance-rankings), this appears to be the fastest Bitcoin implementation. In addition, it is the most developed, contains the latest features, has the [largest share](https://bitnodes.io/nodes/) in the market, and is the most mature implementation of the protocol.
 
-## Bitcoin Core extensions
+## Bitcoin Knots extensions
 
-The "extensions" section related to Bitcoin Core, mainly has to do with tools that lean directly on Core. Take for example [Specter](/bitcoin-core-extensions/specter), an easy-to-use tool to set up a multisig construction. You can also use this guide to set up an Electrum server using tools like [Electrs](/bitcoin-core-extensions/electrs), [Electrum Personal Server](/bitcoin-core-extensions/electrum-personal-server) or [Electrum X](/bitcoin-core-extensions/electrum-x). Or maybe you want your own blockchain explorer? You can with [BTC RPC Explorer](/bitcoin-core-extensions/btc-rpc-explorer) and [Mempool.space](/bitcoin-core-extensions/mempool-space).
+The "extensions" section related to Bitcoin Knots, mainly has to do with tools that lean directly on Knots. Take for example [Specter](/bitcoin-knots-extensions/specter), an easy-to-use tool to set up a multisig construction. You can also use this guide to set up an Electrum server using tools like [Electrs](/bitcoin-knots-extensions/electrs), [Electrum Personal Server](/bitcoin-knots-extensions/electrum-personal-server) or [Electrum X](/bitcoin-knots-extensions/electrum-x). Or maybe you want your own blockchain explorer? You can with [BTC RPC Explorer](/bitcoin-knots-extensions/btc-rpc-explorer) and [Mempool.space](/bitcoin-knots-extensions/mempool-space).
 
 ## Lightning
 
@@ -34,5 +34,5 @@ One of the coolest parts of the guide is [Lightning Terminal](/lightning-extensi
 
 ## Wallets
 
-The wallets chapter focuses on linking different wallets to your node. Both your bitcoin and lightning node are supported by different wallets. For example, it explains how to use the app [Zap](/wallets/zap) to open channels and make Lightning transactions - via Tor or otherwise - with your own node. [Fully Noded](/wallets/fully-noded) can also be attached to your own node, but focuses mainly on Bitcoin Core. With Fully Noded, you can manage your node and create and broadcast PSBT, for example.
+The wallets chapter focuses on linking different wallets to your node. Both your bitcoin and lightning node are supported by different wallets. For example, it explains how to use the app [Zap](/wallets/zap) to open channels and make Lightning transactions - via Tor or otherwise - with your own node. [Fully Noded](/wallets/fully-noded) can also be attached to your own node, but focuses mainly on Bitcoin Knots. With Fully Noded, you can manage your node and create and broadcast PSBT, for example.
 

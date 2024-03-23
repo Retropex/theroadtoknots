@@ -10,11 +10,11 @@ The following is a list of all the ports that are approachable on your Raspberry
 
 We will assume the default values for all tools, with the exception of Thunderhub. This is due to the fact that Ride the Lightning runs on the same port.ort draait.
 
-### Bitcoin Core
+### Bitcoin Knots
 
 | Port | Function |
 | :--- | :--- |
-| **8332** | The JSON-RPC port. With the right username/password combination, you can talk to this. By default, Bitcoin Core only accepts connections from the Pi itself. Therefore, a tool running on the Pi will be allowed to talk to the RPC port, but a random attacker from the outside will not. |
+| **8332** | The JSON-RPC port. With the right username/password combination, you can talk to this. By default, Bitcoin Knots only accepts connections from the Pi itself. Therefore, a tool running on the Pi will be allowed to talk to the RPC port, but a random attacker from the outside will not. |
 | **8333** | This port is responsible for communication with other clients on the Bitcoin network. |
 | **28332** | The Bitcoin Daemon can use the ZeroMQ protocol to send block information to clients. This way, the clients do not have to make a request via the JSON-RPC every time, but can do so on a subscription basis. |
 | **28333** | The same as port 28332 but for transactions instead of blocks. |
@@ -53,7 +53,7 @@ We will assume the default values for all tools, with the exception of Thunderhu
 | Port | Function |
 | :--- | :--- |
 | **8080** | The port with which the REST API of LND can be accessed. Secured with a so-called macaroon. |
-| **9735** | The port which connects with other nodes. A bit like 8333 for Bitcoin Core. |
+| **9735** | The port which connects with other nodes. A bit like 8333 for Bitcoin Knots. |
 | **10009** | The port with which the RPC API of LND makes itself approachable. Secured with a so-called macaroon. |
 
 ### Loop

@@ -6,7 +6,7 @@ import Callout from "nextra-theme-docs/callout";
         Time: 30 minutes
 </Callout>
 
-If you are using [Electrum's](https://electrum.org/#home) wallet software, a logical step is to ensure that Electrum talks to your own node. This cannot be done directly but has to be done through an Electrum Server. This is because the Electrum wallet software normally connects to Electrum Servers of which you don't know who is tracking their use. The Electrum server keeps track of the addresses you have received Bitcoin from and this way several addresses can be traced back to your IP. You don't want that to happen. The solution: run your own Electrum Server. There are several forks available such as [ElectrumX](https://github.com/spesmilo/electrumx), [ElectRS](https://github.com/romanz/electrs) and Electrum Personal Server. This document describes the installation of [Electrum Personal Server](https://github.com/chris-belcher/electrum-personal-server) because it is currently the most lightweight implementation. TRTN also includes a guide to installing for [ElectrumX](/bitcoin-core-extensions/electrum-x). You don't need both so think about which fork you need in advance. One advantage of EPS is that it is quite light and simple. A disadvantage is that it only allows 1 connection at a time. This can be a disadvantage if at a later time you might want to connect to both a desktop client and Blue Wallet at the same time.
+If you are using [Electrum's](https://electrum.org/#home) wallet software, a logical step is to ensure that Electrum talks to your own node. This cannot be done directly but has to be done through an Electrum Server. This is because the Electrum wallet software normally connects to Electrum Servers of which you don't know who is tracking their use. The Electrum server keeps track of the addresses you have received Bitcoin from and this way several addresses can be traced back to your IP. You don't want that to happen. The solution: run your own Electrum Server. There are several forks available such as [ElectrumX](https://github.com/spesmilo/electrumx), [ElectRS](https://github.com/romanz/electrs) and Electrum Personal Server. This document describes the installation of [Electrum Personal Server](https://github.com/chris-belcher/electrum-personal-server) because it is currently the most lightweight implementation. TRTN also includes a guide to installing for [ElectrumX](/bitcoin-knots-extensions/electrum-x). You don't need both so think about which fork you need in advance. One advantage of EPS is that it is quite light and simple. A disadvantage is that it only allows 1 connection at a time. This can be a disadvantage if at a later time you might want to connect to both a desktop client and Blue Wallet at the same time.
 
 ## Preparations
 
@@ -29,7 +29,7 @@ If it is not there already, add it, save the file (using `Ctrl + X`) and restart
 sudo systemctl restart bitcoind
 ```
 
-EPS needs a wallet in Bitcoin Core. Create one if it is not already present. From bitcoin version 23.0 the default wallet type created is descriptor, which does not support importing adresses. To prevent this you need to add `descriptors=false`
+EPS needs a wallet in Bitcoin Knots. Create one if it is not already present. From bitcoin version 23.0 the default wallet type created is descriptor, which does not support importing adresses. To prevent this you need to add `descriptors=false`
 
 ```bash
 bitcoin-cli -named createwallet wallet_name="electrumpersonalserver" disable_private_keys=true descriptors=false
@@ -67,7 +67,7 @@ This config-file contains a lot of comments and tips on what to enter where. In 
 * `[master-public-keys]` - in Electrum, look up your xpub via the `Wallet` &gt; `Information` menu.
 * `[bitcoin-rpc]` - `datadir = /home/ubuntu/.bitcoin`
 * `[electrum-server]` - here choose `host = 0.0.0.0` (instead of 127.0.0.1)
-* `wallet_filename` - make this `wallet_filename = electrumpersonalserver` if you have previously created a special wallet for this. Or enter `wallet.dat` here if you are using the default wallet from Bitcoin Core so that it is clear to EPS which wallet file to use. If you want to use `Specter` later on, it will also create wallets and if you did not specify a `wallet_filename`, EPS will not start.
+* `wallet_filename` - make this `wallet_filename = electrumpersonalserver` if you have previously created a special wallet for this. Or enter `wallet.dat` here if you are using the default wallet from Bitcoin Knots so that it is clear to EPS which wallet file to use. If you want to use `Specter` later on, it will also create wallets and if you did not specify a `wallet_filename`, EPS will not start.
 
 <Callout emoji="&#x2139;">
         For the last command in the block below, pay attention to the dot at the end of the line

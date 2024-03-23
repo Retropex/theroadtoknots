@@ -38,7 +38,7 @@ Be sure to start from a clean slate. It could prevent some errors later on.
 make clean
 ```
 
-Rebuild bitcoin core based on the version of the source code you just checked out. The addition of `-j $(nproc)` uses all the cores of the CPU and would make the build faster than it would be without this addition.
+Rebuild bitcoin Knots based on the version of the source code you just checked out. The addition of `-j $(nproc)` uses all the cores of the CPU and would make the build faster than it would be without this addition.
 
 ```bash
 make -j $(nproc)
@@ -46,7 +46,7 @@ make -j $(nproc)
 
 The build will finish in about an hour. Nice time for a beer or cup of coffee!
 
-Stop services that depend on Bitcoin Core, such as btc-rpc-explorer, LND or Electrum. You know best which ones you have running. From experience, not turning off services that depend on Core doesn't really matter. The services will temporarily not receive data from during Core's update, after which it will resume once Core is turned back on.
+Stop services that depend on Bitcoin Knots, such as btc-rpc-explorer, LND or Electrum. You know best which ones you have running. From experience, not turning off services that depend on Knots doesn't really matter. The services will temporarily not receive data from during Knots update, after which it will resume once Knots is turned back on.
 
 Stop the bitcoind service:
 
@@ -66,13 +66,13 @@ Start the service bitcoin. The service will have started fairly quickly but the 
 sudo systemctl start bitcoind
 ```
 
-Check the current version of bitcoin core.
+Check the current version of bitcoin Knots.
 
 ```bash
 bitcoin-cli --version
 ```
 
-The output will look like `Bitcoin Core RPC client v25.0` and Core is now updated!
+The output will look like `Bitcoin Knots RPC client v25.0` and Knots is now updated!
 
 Start the other services you may have disabled. Note that when you start LND, unlocking LND can only be done after bitcoin's blockchain has been resynchronized. Check with `tail -f -n 200 .bitcoin/debug.log` how far along it is. Services start this way:
 

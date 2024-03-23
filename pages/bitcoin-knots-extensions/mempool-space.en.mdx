@@ -10,7 +10,7 @@ Mempool.space allows you to keep track of bitcoin's mempool yourself. This is us
 
 ## Preparation
 
-1. [Electrs](/bitcoin-core-extensions/electrs)
+1. [Electrs](/bitcoin-knots-extensions/electrs)
 2. [NodeJS](/raspberry-pi/general-dependencies-install#nodejs)
 
 ## Installation
@@ -70,8 +70,8 @@ cp mempool-config.sample.json mempool-config.json
 
 Open the file `nano mempool-config.json`. If all goes well, the file looks like the one below. It is quite large and take great care to change the right things:
 
-* `FROM_BITCOIND_A` and `FROM_BITCOIND_C`: [The user](/bitcoin-core/configure-and-start) that you created.
-* `FROM_BITCOIND_B` and `FROM_BITCOIND_D`: [The password](/bitcoin-core/configure-and-start) that you were given.
+* `FROM_BITCOIND_A` and `FROM_BITCOIND_C`: [The user](/bitcoin-knots/configure-and-start) that you created.
+* `FROM_BITCOIND_B` and `FROM_BITCOIND_D`: [The password](/bitcoin-knots/configure-and-start) that you were given.
 
 ```json
 {

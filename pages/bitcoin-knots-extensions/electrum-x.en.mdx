@@ -6,7 +6,7 @@ import Callout from "nextra-theme-docs/callout";
 	Time: 15 minutes and 7 days waiting for synchronization/indexing
 </Callout>
 
-Using Electrum X, you can use the [Electrum protocol](https://electrumx-spesmilo.readthedocs.io/en/latest/protocol-basics.html). This protocol lets wallets and other software communicate with nodes. In other places in the guide, you can connect tools and wallets that communicate via the Electrum protocol directly to your node. A functionality that promotes privacy. For example, you can also connect the [BTC RPC Explorer](/bitcoin-core-extensions/btc-rpc-explorer) to your own Electrum X server. Then when you look up information about your transactions or addresses from yourself in the future, no one will be able to see it. This way no one can link transactions to you and you enjoy more privacy.
+Using Electrum X, you can use the [Electrum protocol](https://electrumx-spesmilo.readthedocs.io/en/latest/protocol-basics.html). This protocol lets wallets and other software communicate with nodes. In other places in the guide, you can connect tools and wallets that communicate via the Electrum protocol directly to your node. A functionality that promotes privacy. For example, you can also connect the [BTC RPC Explorer](/bitcoin-knots-extensions/btc-rpc-explorer) to your own Electrum X server. Then when you look up information about your transactions or addresses from yourself in the future, no one will be able to see it. This way no one can link transactions to you and you enjoy more privacy.
 
 It can take up to 7 days before Electrum X is fully indexed and usable. Until then you can't use it.
 
@@ -100,11 +100,11 @@ SSL_KEYFILE=/home/ubuntu/.electrumx/server.key
 SERVICES=tcp://:50001,ssl://:50002,wss://:50004,rpc://
 ```
 
-Before you save it, you need to make two adjustments. In the `USERNAME` and `PASSWORD` places, enter the username-password combination you created in the [authentication part of the Bitcoin Core configuration](/bitcoin-core/configure-and-start). Once everything is correct you can save the file with `Ctrl + X` and confirm with `Y`.
+Before you save it, you need to make two adjustments. In the `USERNAME` and `PASSWORD` places, enter the username-password combination you created in the [authentication part of the Bitcoin Knots configuration](/bitcoin-knots/configure-and-start). Once everything is correct you can save the file with `Ctrl + X` and confirm with `Y`.
 
 ## Firewall and Router
 
-In principle, you can connect a local tool such as [BTC RPC Explorer](/bitcoin-core-extensions/btc-rpc-explorer) directly to Electrum X. There is no need to open any ports for this, as local connections are always allowed (i.e. from the Pi to the Pi). However, if you want to use Electrum X in an app like BlueWallet, you need to execute the following commands to open two ports.
+In principle, you can connect a local tool such as [BTC RPC Explorer](/bitcoin-knots-extensions/btc-rpc-explorer) directly to Electrum X. There is no need to open any ports for this, as local connections are always allowed (i.e. from the Pi to the Pi). However, if you want to use Electrum X in an app like BlueWallet, you need to execute the following commands to open two ports.
 
 ```bash
 sudo ufw allow 50001

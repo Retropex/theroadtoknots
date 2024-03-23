@@ -6,7 +6,7 @@ import Callout from "nextra-theme-docs/callout";
 	Time: 5 minutes
 </Callout>
 
-Bitcoin Core has [lots of settings](https://en.bitcoinwiki.org/wiki/Running_Bitcoind) just like your mobile phone. The nice thing about your mobile phone's settings is that they're nicely grouped together in a visual overview. You can easily change them with the push of a button. But changing settings of Bitcoin Core works a bit differently. First you should get a list of all possible settings, then read up on them and decide what to set. Quite a hassle for just a few settings, that's why the configuration below should get you up to speed. It's tweaked for this guide and if you'd want to customize a bit more you could use [this resource](https://jlopp.github.io/bitcoin-core-config-generator) by Lopp.
+Bitcoin Knots has [lots of settings](https://en.bitcoinwiki.org/wiki/Running_Bitcoind) just like your mobile phone. The nice thing about your mobile phone's settings is that they're nicely grouped together in a visual overview. You can easily change them with the push of a button. But changing settings of Bitcoin Knots works a bit differently. First you should get a list of all possible settings, then read up on them and decide what to set. Quite a hassle for just a few settings, that's why the configuration below should get you up to speed. It's tweaked for this guide and if you'd want to customize a bit more you could use [this resource](https://jlopp.github.io/bitcoin-core-config-generator) by Lopp.
 
 ## Configuration
 
@@ -16,31 +16,31 @@ In the home directory of your Pi \(`/home/ubuntu`\) there's a folder named `bitc
 mkdir ~/.bitcoin
 ```
 
-The settings of Bitcoin Core are placed in a file named bitcoin.conf inside the .bitcoin folder.
+The settings of Bitcoin Knots are placed in a file named bitcoin.conf inside the .bitcoin folder.
 
 ```bash
 nano ~/.bitcoin/bitcoin.conf
 ```
 
-Just as with the [torrc file](https://docs.theroadtonode.com/bitcoin-core/tor-changes) you should copy-paste some information. You can just copy and paste all lines, including the ones with comments starting with a `#`.
+Just as with the [torrc file](https://docs.theroadtonode.com/bitcoin-knots/tor-changes) you should copy-paste some information. You can just copy and paste all lines, including the ones with comments starting with a `#`.
 
 ```bash
 # Accepts JSON-RPC commands
 server=1
 
-# Run Bitcoin Core in the background
+# Run Bitcoin Knots in the background
 daemon=1
 
 # Turn listening mode on
 listen=1
 
-# Make sure Core keeps an index of all txs
+# Make sure Knots keeps an index of all txs
 txindex=1
 
 # This makes sure Specter works faster
 blockfilterindex=1
 
-# If you'd want to run Specter (checkout Bitcoin Core extensions chapter of this guide)
+# If you'd want to run Specter (checkout Bitcoin Knots extensions chapter of this guide)
 disablewallet=0
 
 # Cache size set in MBs for the database. Raising this to 3000 helps speed up the IBD.
@@ -49,11 +49,11 @@ dbcache=3000
 
 # If you'd want to run your node on both Tor and clearnet, leave the setting below as is.
 # If you'd want to run your node only on Tor, do the following:
-# - Remove the # in front of onlynet=onion. This was you tell Core to only use Tor.
-# - Remove the # in front of proxy=127.0.0.1:9050. This way you tell Core to route traffic through Tor.
+# - Remove the # in front of onlynet=onion. This was you tell Knots to only use Tor.
+# - Remove the # in front of proxy=127.0.0.1:9050. This way you tell Knots to route traffic through Tor.
 # - Remove the # in front of bind=127.0.0.1.
-# - Place a # in front of onion=127.0.0.1:9050. You already told Core to run everything through Tor already.
-# - Place a # in front of discover=1. You turn off the discover function of Core.
+# - Place a # in front of onion=127.0.0.1:9050. You already told Knots to run everything through Tor already.
+# - Place a # in front of discover=1. You turn off the discover function of Knots.
 # - Place a # in front of upnp=1. You turn off the UPnP function this way.
 
 #onlynet=onion
@@ -74,18 +74,18 @@ changetype=bech32
 
 Wait a minute before hitting `Ctrl + X` instantly. If you'd want your node to only be reachable through Tor you should follow the step detailed below. If you'd also want your node to be reachable through the normal internet, then leave it as is and save the file.
 
-* Remove the `#` in front of `onlynet=onion`. This was you tell Core to only use Tor.
-* Remove the `#` in front of `proxy=127.0.0.1:9050`. This way you tell Core to route traffic through Tor.
+* Remove the `#` in front of `onlynet=onion`. This was you tell Knots to only use Tor.
+* Remove the `#` in front of `proxy=127.0.0.1:9050`. This way you tell Knots to route traffic through Tor.
 * Remove the `#` in front of `bind=127.0.0.1`.
-* Place a `#` in front of `onion=127.0.0.1:9050`. You already told Core to run everything through Tor already.
-* Place a `#` in front of `discover=1`. You turn off the discover function of Core.
+* Place a `#` in front of `onion=127.0.0.1:9050`. You already told Knots to run everything through Tor already.
+* Place a `#` in front of `discover=1`. You turn off the discover function of Knots.
 * Place a `#` in front of `upnp=1`. You turn off the UPnP function this way.
 
 When you're ready to save the changes to the configuration file, hit `Ctrl + X` and afterwards `Y` to save it.
 
 ## Authentication
 
-In order for other application to make use of bitcoind as a backend, you'll need to create a new Bitcoin Core user. You can do this with a little script. The following command will create a user named `XXX`, but you can change this to whatever you like.
+In order for other application to make use of bitcoind as a backend, you'll need to create a new Bitcoin Knots user. You can do this with a little script. The following command will create a user named `XXX`, but you can change this to whatever you like.
 
 ```bash
 python3 ~/bitcoin/share/rpcauth/rpcauth.py XXX
@@ -115,10 +115,10 @@ You can add as many rpcauth lines to the configuration file as you like. This wa
 If you've setup UFW it's important to open port 8333. This makes sure other nodes in the network can connect with yours. Opening this port is only necessary if you're \(also\) running your node on cleannet. If you're only running your node on Tor, you can skip this step and continue with "start".
 
 ```bash
-sudo ufw allow 8333 comment "Port for Bitcoin Core peers"
+sudo ufw allow 8333 comment "Port for Bitcoin Knots peers"
 ```
 
-In the configuration file there's a line that says `upnp=1`. This means that - as long as your router supports it - Bitcoin Core also opens port 8333 on your router automatically. If your router doesn't support UPnP or you've turned it off, you should open that port manually. Go to [portforward.com](https://portforward.com) and look up your specific router to find out how to open port 8333 and send the traffic to your Pi.
+In the configuration file there's a line that says `upnp=1`. This means that - as long as your router supports it - Bitcoin Knots also opens port 8333 on your router automatically. If your router doesn't support UPnP or you've turned it off, you should open that port manually. Go to [portforward.com](https://portforward.com) and look up your specific router to find out how to open port 8333 and send the traffic to your Pi.
 
 ## Start
 
@@ -138,7 +138,7 @@ Everytime a block is verified, you'll see a line appearing that says something l
 
 The initial block download \(IBD\) will take somewhere between 60 and 80 hours. 
 
-Together with the installation of Bitcoin Core you also got a tool named `bitcoin-cli`. You can talk with bitcoind using this tool.
+Together with the installation of Bitcoin Knots you also got a tool named `bitcoin-cli`. You can talk with bitcoind using this tool.
 
 ## Check settings
 
@@ -151,7 +151,7 @@ bitcoin-cli getnetworkinfo
 With this command you can get information about the network. If everything is alright, the output will look similar to the one below if you only use Tor.
 
 <Callout emoji="&#x2139;">
-	The onion-address will be different from the one you created in [the last step](https://docs.theroadtonode.com/bitcoin-core/tor-changes#onion-address) \(if you created that one\). It won't match the onion-address you'll see in your output and that's good. The onion-address from the last step is only for applications to make use of your node as their backend from outside of your own network. The onion-address below is created by bitcoind itself and is used for communication with other nodes instead of applications.
+	The onion-address will be different from the one you created in [the last step](https://docs.theroadtonode.com/bitcoin-knots/tor-changes#onion-address) \(if you created that one\). It won't match the onion-address you'll see in your output and that's good. The onion-address from the last step is only for applications to make use of your node as their backend from outside of your own network. The onion-address below is created by bitcoind itself and is used for communication with other nodes instead of applications.
 </Callout>
 
 ```json

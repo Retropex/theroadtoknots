@@ -1,0 +1,90 @@
+import Callout from "nextra-theme-docs/callout";
+
+# Installation
+
+<Callout emoji="&#x2139;">
+Time: almost one and a half hour \(of which 95% waiting while running the `make` command\)
+</Callout>
+
+This part of the guide will take a while, so be prepared. The goal is to compile Bitcoin Knots itself. What will you be doing?
+
+* **Install dependencies**, in order to compile Bitcoin Knots you'll need some extra software.
+* **Get the source code**, through the use of Git you can get the latest source code.
+* **Install database**
+* **Compile Bitcoin Knots**
+
+## Dependencies
+
+Execute the command below to install all required dependencies. Dependencies are software package other software depends on. Bitcoin Knots also depends on other software for its compilation.
+
+```bash
+sudo apt install git automake autoconf autotools-dev build-essential make pkg-config protobuf-compiler libminiupnpc-dev libprotobuf-dev libdb++-dev libzmq3-dev libsqlite3-dev libboost-thread-dev libboost-test-dev libboost-all-dev libevent-dev libtool libssl-dev libboost-system-dev libboost-filesystem-dev -y
+```
+
+## Source code
+
+Make sure you are in you "home directory". To be sure, execute `cd ~`. The tilde sign \(`~`\) is a short cut for `/home/ubuntu` in this case. After that, execute the following command to get Bitcoin knots's source code and place it in a folder inside the home directory. A folder named "bitcoin" will automatically be created.
+
+```bash
+git clone https://github.com/bitcoin/bitcoin
+```
+
+Go inside that folder. This is needed for the installation of Knots.
+
+```bash
+cd bitcoin
+```
+
+Due to the [git-flow of Bitcoin Core](https://github.com/bitcoin/bitcoin/blob/master/CONTRIBUTING.md#decision-making-process) (and for Knots since Knots is rebased on Core) you could argue that everything inside the `master` branch is correct and functional. The release process of Bitcoin Core cuts off the `master` branch at a certain predefined date. Everything on that branch at that momen, will make it into the release. Everything that is added to the branch afterward, will be included in the new release.
+
+If you'd like to specify a certain release \(which is recommended\), you can execute the command below. At the moment v25.1 is the latest version of Bitcoin Knots.
+
+```bash
+git checkout v25.0
+```
+
+## Compiling Bitcoin Knots
+
+Finish it off by compiling Bitcoin Knots.
+
+```bash
+./autogen.sh
+```
+
+<Callout emoji="&#x2139;">
+With the command below we configure the installation process of Bitcoin Knots. It is possible to run Bitcoin Knots without wallet functionality for example, and purely use it as a backend for other wallet software. If you're sure you _**WON'T**_ be using the wallet functionality, then run:
+
+`./configure --without-gui --disable-wallet`
+
+The above command has an additional flag `--disable-wallet`. If you're not sure whether you need the wallet functionality, run the command below.
+
+Did you configure Bitcoin Knots without the wallet functionality but still want to add it, execute all commands starting with the one below and work your way down.
+</Callout>
+
+Do you want to know about any other option in regards to the installation of Bitcoin Knots, run `./configure --help`.
+
+```bash
+./configure --without-gui
+```
+
+A slightly quicker configuration without dependency tracking, tests and benchmarks:
+
+```bash
+./configure --without-gui --disable-maintainer-mode --disable-dependency-tracking --disable-tests --disable-gui-tests --disable-bench
+```
+
+After hitting enter for the following command, you can go do something else. **From experience we can tell this step will take around one and a half hour.**
+
+```bash
+make -j $(nproc)
+```
+
+If you'd like to run some test to check whether everything is alright, run `make check`. This is optional and can take up to fifteen minutes.
+
+Finalize the installation process with the following:
+
+```bash
+sudo make install
+```
+
+That's it for installing Bitcoin Knots! You can go back to your home directory with `cd ~`.

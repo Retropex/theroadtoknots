@@ -2,8 +2,8 @@
 	"index": "Overview",
 	"introduction": "Introduction",
 	"raspberry-pi": "Raspberry Pi",
-	"bitcoin-core": "Bitcoin Core",
-	"bitcoin-core-extensions": "Bitcoin Core Extensions",
+	"bitcoin-knots": "Bitcoin Knots",
+	"bitcoin-knots-extensions": "Bitcoin Knots Extensions",
 	"lightning": "Lightning",
 	"lightning-extensions": "Lightning Extensions",
 	"wallets": "Wallets"

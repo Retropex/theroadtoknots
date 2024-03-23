@@ -6,7 +6,7 @@ import Callout from "nextra-theme-docs/callout";
 	Time: 5 minutes
 </Callout>
 
-Instead of needing to start Bitcoin Core manually, it would be nice to start it automatically. This could be useful after restarting your Pi or if bitcoind crashes for some reason. Linux has systemd services for automated tasks like that. Before you start automating, please make sure Bitcoin Core \(bitcoind\) is turned off. You can do it this way:
+Instead of needing to start Bitcoin Knots manually, it would be nice to start it automatically. This could be useful after restarting your Pi or if bitcoind crashes for some reason. Linux has systemd services for automated tasks like that. Before you start automating, please make sure Bitcoin Knots \(bitcoind\) is turned off. You can do it this way:
 
 ```bash
 bitcoin-cli stop
@@ -67,7 +67,7 @@ It could be possible things don't work from the get-go. That would be the case i
              └─40483 /usr/local/bin/bitcoind
 
 Jan 14 12:20:53 ubuntu systemd[1]: Started Bitcoin Daemon.
-Jan 14 12:20:53 ubuntu bitcoind[40482]: Bitcoin Core starting
+Jan 14 12:20:53 ubuntu bitcoind[40482]: Bitcoin Knots starting
 ```
 
 Try the same command another few times, because it could take up to a minute before bitcoind is started correctly by the service.

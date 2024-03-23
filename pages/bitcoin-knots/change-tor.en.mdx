@@ -36,10 +36,10 @@ sudo systemctl restart tor
 
 ## RPC via Tor
 
-You can use the RPC protocol of bitcoind to execute various commands in relation to Bitcoin Core. You can sign transactions or retrieve information regarding the network, for example. Normally Core doesn't allow any commands when coming from another network. By default it only allows commands coming from the Pi itself, localhost. If you like to send commands from outside of your network, you'd have to whitelist certain specific IP-addresses. A more simple way is through enabling Tor. Core will treat commands through Tor as if they were coming from the Pi itself.
+You can use the RPC protocol of bitcoind to execute various commands in relation to Bitcoin Knots. You can sign transactions or retrieve information regarding the network, for example. Normally Knots doesn't allow any commands when coming from another network. By default it only allows commands coming from the Pi itself, localhost. If you like to send commands from outside of your network, you'd have to whitelist certain specific IP-addresses. A more simple way is through enabling Tor. Knots will treat commands through Tor as if they were coming from the Pi itself.
 
 <Callout type="warning" emoji="&#x26A0;">
-	Although the RPC protocol of Core is secured with a password, it is discouraged to make Core accessible from outside. It simply adds too many security risks. When the password is leaked, please understand your funds can be lost. Consider these step as optional.
+	Although the RPC protocol of Knots is secured with a password, it is discouraged to make Knots accessible from outside. It simply adds too many security risks. When the password is leaked, please understand your funds can be lost. Consider these step as optional.
 </Callout>
 
 Open the torrc file.
