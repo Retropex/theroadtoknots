@@ -1,13 +1,13 @@
 export default {
-	github: "https://github.com/harrybawsac/theroadtonode",
-	docsRepositoryBase: "https://github.com/harrybawsac/theroadtonode/blob/master",
-	titleSuffix: " – The Road to Node",
+	github: "https://github.com/Retropex/theroadtonode",
+	docsRepositoryBase: "https://github.com/Retropex/theroadtonode/blob/master",
+	titleSuffix: " – The Road to Knots",
 	i18n: [
 		{ locale: 'en', text: 'English' },
 	],
 	logo: (
 		<>
-			<span className="mr-2 font-extrabold hidden md:inline">The Road to Node</span>
+			<span className="mr-2 font-extrabold hidden md:inline">The Road to Knots</span>
 			<span className="text-gray-600 font-normal hidden md:inline">
 				A thorough guide for making your own Bitcoin and Lightning node
 			</span>
@@ -22,14 +22,14 @@ export default {
 			<meta httpEquiv="Content-Language" content="en, nl" />
 			<meta name="description" content="A thorough guide for making your own Bitcoin and Lightning node" />
 			<meta name="og:description" content="A thorough guide for making your own Bitcoin and Lightning node" />
-			<meta name="og:title" content="The Road to Node" />
-			<meta name="og:image" content="https://theroadtonode.com/thermal-paste.png" />
-			<meta name="og:url" content="https://theroadtonode.com" />
+			<meta name="og:title" content="The Road to Knots" />
+			<meta name="og:image" content="https://scratch-knots.orangepill.ovh/thermal-paste.png" />
+			<meta name="og:url" content="https://scratch-knots.orangepill.ovh" />
 			<meta name="twitter:card" content="summary_large_image" />
-			<meta name="twitter:image" content="https://theroadtonode.com/thermal-paste.png" />
-			<meta name="twitter:site:domain" content="https://theroadtonode.com" />
-			<meta name="twitter:url" content="https://theroadtonode.com" />
-			<meta name="apple-mobile-web-app-title" content="The Road to Node" />
+			<meta name="twitter:image" content="https://scratch-knots.orangepill.ovh/thermal-paste.png" />
+			<meta name="twitter:site:domain" content="https://scratch-knots.orangepill.ovh" />
+			<meta name="twitter:url" content="https://scratch-knots.orangepill.ovh" />
+			<meta name="apple-mobile-web-app-title" content="The Road to Knots" />
 			<link
 				rel="icon"
 				type="image/png"
@@ -55,7 +55,7 @@ export default {
 	nextLinks: true,
 	footer: true,
 	footerEditLink: "Edit this page on GitHub",
-	footerText: <>{new Date().getFullYear()} © The Road to Node.</>,
+	footerText: <>{new Date().getFullYear()} © The Road to Knots.</>,
 	floatTOC: true,
 	defaultMenuCollapsed: true
 }
