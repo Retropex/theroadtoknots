@@ -18,7 +18,7 @@ This part of the guide will take a while, so be prepared. The goal is to compile
 Execute the command below to install all required dependencies. Dependencies are software package other software depends on. Bitcoin Knots also depends on other software for its compilation.
 
 ```bash
-sudo apt install git automake autoconf autotools-dev build-essential make pkg-config protobuf-compiler libminiupnpc-dev libprotobuf-dev libdb++-dev libzmq3-dev libsqlite3-dev libboost-thread-dev libboost-test-dev libboost-all-dev libevent-dev libtool libssl-dev libboost-system-dev libboost-filesystem-dev librsvg2-bin librsvg2-2 imagemagick -y
+sudo apt install git build-essential cmake pkgconf python3 libevent-dev libboost-dev libsqlite3-dev libminiupnpc-dev libzmq3-dev systemtap-sdt-dev -y
 ```
 
 ## Source code
@@ -40,23 +40,19 @@ Due to the [git-flow of Bitcoin Core](https://github.com/bitcoin/bitcoin/blob/ma
 If you'd like to specify a certain release \(which is recommended\), you can execute the command below. At the moment v25.1 is the latest version of Bitcoin Knots.
 
 ```bash
-git checkout v28.1.knots20250305
+git checkout v29.1.knots20250903
 ```
 
 ## Compiling Bitcoin Knots
 
 Finish it off by compiling Bitcoin Knots.
 
-```bash
-./autogen.sh
-```
-
 <Callout emoji="&#x2139;">
 With the command below we configure the installation process of Bitcoin Knots. It is possible to run Bitcoin Knots without wallet functionality for example, and purely use it as a backend for other wallet software. If you're sure you _**WON'T**_ be using the wallet functionality, then run:
 
-`./configure --without-gui --disable-wallet`
+`cmake -B build -DENABLE_WALLET=OFF -DBUILD_GUI=OFF`
 
-The above command has an additional flag `--disable-wallet`. If you're not sure whether you need the wallet functionality, run the command below.
+The above command has an additional flag `-DENABLE_WALLET=OFF`. If you're not sure whether you need the wallet functionality, run the command below.
 
 Did you configure Bitcoin Knots without the wallet functionality but still want to add it, execute all commands starting with the one below and work your way down.
 </Callout>
@@ -64,27 +60,25 @@ Did you configure Bitcoin Knots without the wallet functionality but still want 
 Do you want to know about any other option in regards to the installation of Bitcoin Knots, run `./configure --help`.
 
 ```bash
-./configure --without-gui
+cmake -B build -DENABLE_WALLET=ON -DBUILD_GUI=OFF
 ```
 
-A slightly quicker configuration without dependency tracking, tests and benchmarks:
+A slightly quicker configuration without tests and benchmarks:
 
 ```bash
-./configure --without-gui --disable-maintainer-mode --disable-dependency-tracking --disable-tests --disable-gui-tests --disable-bench
+cmake -B build -DBUILD_GUI=OFF -DBUILD_TESTS=OFF
 ```
 
 After hitting enter for the following command, you can go do something else. **From experience we can tell this step will take around one and a half hour.**
 
 ```bash
-make -j $(nproc)
+cmake --build build -j $(nproc)
 ```
-
-If you'd like to run some test to check whether everything is alright, run `make check`. This is optional and can take up to fifteen minutes.
 
 Finalize the installation process with the following:
 
 ```bash
-sudo make install
+cmake --install build
 ```
 
 That's it for installing Bitcoin Knots! You can go back to your home directory with `cd ~`.
